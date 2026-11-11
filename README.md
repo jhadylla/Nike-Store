@@ -63,8 +63,8 @@ Nike-Store/
 | Nome | GitHub |
 |---|---|
 | Jhadylla (completar sobrenome) | [@jhadylla](https://github.com/jhadylla) |
-| Daniel Felipe (completar sobrenome) | [@danielfelipelacerda09-hue](https://github.com/danielfelipelacerda09-hue) |
-| (adicionar integrante) | (adicionar usuário) |
+| Anderson S.M| [@Monteiroa](monteiroa@acad.ifma.edu.br) |
+| Maria guajajara | [@Maria](mariaguajajara@acad.ifma.edu.br) |
 
 ## 📚 Disciplina
 
