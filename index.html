@@ -6,6 +6,15 @@
   <meta name="description" content="Nike Store: tênis, meias e roupas para correr, treinar e usar no dia a dia.">
   <title>Nike Store</title>
 
+  <!-- Google Fonts (Limelight e Libre Caslon Condensed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:ital,wght@0,400..700;1,400..700&family=Limelight&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:wght@400;600;700&family=Limelight&display=swap" rel="stylesheet">
+
   <!-- 1º: Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- 2º: CSS do projeto (sempre depois do framework) -->
@@ -31,11 +40,32 @@
   </header>
 
   <main>
-    <section id="inicio" class="hero text-center bg-dark text-white py-5">
-      <div class="container py-4">
-        <h1 class="display-4 fw-bold hero-titulo">Corra mais. Treine mais.</h1>
-        <p class="lead mb-4 hero-sub">Tênis, meias e roupas Nike em um só lugar.</p>
-        <a href="#produtos" class="btn btn-pedir btn-lg btn-pulso">Ver categorias</a>
+    <section id="inicio" class="hero-full text-white d-flex align-items-center py-5">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          
+          <!-- Coluna da Esquerda: Texto e Botão -->
+          <div class="col-12 col-md-7 text-center text-md-start">
+            <p class="hero-etiqueta fw-semibold mb-2">Nova Coleção</p>
+            <h1 class="hero-titulo mb-3">Supere seus limites</h1>
+            <p class="lead mb-4">Performance e estilo para cada passo do seu treino.</p>
+            <a href="#produtos" class="btn btn-pedir btn-lg btn-pulso px-4">Ver categorias</a>
+          </div>
+
+          <!-- Coluna da Direita: Carrossel Automático sem JS -->
+          <div class="col-12 col-md-5">
+            <div class="carrossel-css hero-img">
+              <div class="carrossel-trilho">
+                <img src="img/sapato-branco.avif" alt="Tênis Nike">
+                <img src="img/blusa-branca.avif" alt="Blusa Nike">
+                <img src="img/roupa-kit.avif" alt="Roupas Nike">
+                <!-- Cópia da 1ª imagem para o loop infinito suave -->
+                <img src="img/sapato-branco.avif" alt="Tênis Nike">
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -58,7 +88,7 @@
           <div class="col-12 col-md-6 col-lg-4">
             <article class="card card-produto h-100 shadow-sm border-0">
               <div class="img-box bg-light p-3 text-center">
-                <img src="img/meia-colorida.avif" class="img-fluid" alt="Kit de meias Nike coloridas" loading="lazy">
+                <img src="img/meia-preta-canu-alto.avif" class="img-fluid" alt="Meias Nike pretas de cano alto" loading="lazy">
               </div>
               <div class="card-body text-center d-flex flex-column">
                 <h3 class="card-title h5 fw-bold">Meias</h3>
@@ -85,9 +115,26 @@
   </main>
 
   <footer id="contato" class="bg-dark text-center text-white py-4">
-    <p class="mb-1 fw-bold">Nike Store</p>
-    <p class="mb-0">contato@exemplo.com</p>
-  </footer>
+  <div class="container">
+    <p class="mb-3 fw-bold">Nike Store</p>
+
+    <h2 class="h6 text-uppercase mb-3">Equipe</h2>
+    <ul class="list-unstyled row row-cols-1 row-cols-md-3 g-3 mb-0">
+      <li class="col">
+        <span class="d-block fw-bold">Jhadylla</span>
+        <a class="link-light text-break" href="mailto:Jhadylla">Jhadyllasousa@acad.ifma.edu.br</a>
+      </li>
+      <li class="col">
+        <span class="d-block fw-bold">Anderson S. M.</span>
+        <a class="link-light text-break" href="mailto:monteiroa@acad.ifma.edu.br">monteiroa@acad.ifma.edu.br</a>
+      </li>
+      <li class="col">
+        <span class="d-block fw-bold">Maria Guajajara</span>
+        <a class="link-light text-break" href="mailto:mariaguajajara@acad.ifma.edu.br">mariaguajajara@acad.ifma.edu.br</a>
+      </li>
+    </ul>
+  </div>
+</footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>

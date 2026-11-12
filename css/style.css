@@ -1,58 +1,175 @@
-/* CSS próprio da Nike Store.
-   Carregado DEPOIS do Bootstrap: só cores, detalhes e animações.
-   Layout (grid, navbar, espaçamentos) fica por conta do Bootstrap. */
+/* CSS próprio da Nike Store — Paleta Editorial Luxo (Preto, Creme e Dourado)
+   Carregado DEPOIS do Bootstrap: só cores, detalhes e animações. */
 
 :root {
-  --nike-laranja: #fa5400;
-  --nike-laranja-escuro: #d94700;
-  --nike-preto: #111;
+  --nike-creme: #f4f1ea;
+  --nike-creme-hover: #dfd9cc;
+  --nike-dourado: #d4af37;
+  --nike-dourado-escuro: #8a6d00; /* contraste ~4,9:1 sobre branco (antes #b59224, ~3:1) */
+  --nike-preto: #0a0a0a;
+  --nike-card-img: #f5f5f5;
+
+  --fonte-titulo: "Limelight", serif;
+  --fonte-texto: "Libre Caslon Condensed", serif;
+  --bs-body-font-family: var(--fonte-texto);
 }
+
+/* Impede barra de rolagem horizontal.
+   "clip" não cria contêiner de rolagem (não quebra position: sticky);
+   "hidden" fica como fallback para navegadores antigos. */
+html, body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+}
+h1.fw-bold, h2.fw-bold, h3.fw-bold, h4.fw-bold, h5.fw-bold, h6.fw-bold,
+.navbar-brand.fw-bold { font-weight: 400 !important; }
+.card-body, .navbar .nav-link, .btn { font-size: 1.05rem; }
+
+/* ---------- Navbar ---------- */
+.navbar.bg-dark {
+  background-color: var(--nike-preto) !important;
+  border-bottom: 1px solid #1f1e1b;
+}
+.navbar-brand {
+  color: var(--nike-dourado) !important;
+}
+.navbar .nav-link { transition: color .2s ease; }
+.navbar .nav-link:hover,
+.navbar .nav-link.active { color: var(--nike-dourado) !important; }
 
 /* ---------- Botão principal ---------- */
 .btn-pedir {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: var(--nike-laranja);
-  --bs-btn-border-color: var(--nike-laranja);
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: var(--nike-laranja-escuro);
-  --bs-btn-hover-border-color: var(--nike-laranja-escuro);
-  --bs-btn-active-bg: var(--nike-laranja-escuro);
-  --bs-btn-active-border-color: var(--nike-laranja-escuro);
-  --bs-btn-focus-shadow-rgb: 250, 84, 0;
-  font-weight: 600;
+  --bs-btn-color: var(--nike-preto);
+  --bs-btn-bg: var(--nike-creme);
+  --bs-btn-border-color: var(--nike-creme);
+  --bs-btn-hover-color: var(--nike-preto);
+  --bs-btn-hover-bg: var(--nike-creme-hover);
+  --bs-btn-hover-border-color: var(--nike-creme-hover);
+  --bs-btn-active-color: var(--nike-preto); /* evita texto branco no clique (herdado do .text-white) */
+  --bs-btn-active-bg: var(--nike-creme-hover);
+  --bs-btn-active-border-color: var(--nike-creme-hover);
+  --bs-btn-focus-shadow-rgb: 244, 241, 234;
+  font-weight: 700;
   border-radius: 50rem;
-  transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+  transition: background-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 .btn-pedir:hover {
   transform: translateY(-2px);
-  box-shadow: 0 .4rem .8rem rgba(250, 84, 0, .35);
-}
-.btn-pedir.adicionado {
-  --bs-btn-bg: #198754;
-  --bs-btn-border-color: #198754;
-  --bs-btn-hover-bg: #198754;
-  --bs-btn-hover-border-color: #198754;
+  box-shadow: 0 .4rem 1rem rgba(212, 175, 55, 0.28);
 }
 
-/* ---------- Hero ---------- */
-.hero {
-  background: linear-gradient(135deg, var(--nike-preto) 0%, #2b2b2b 100%);
+/* Nos cards de fundo claro, o botão fica preto com texto creme (alto contraste).
+   Usa .card-produto (presente em TODAS as páginas), não #produtos (só existe no index). */
+.card-produto .btn-pedir {
+  --bs-btn-color: var(--nike-creme);
+  --bs-btn-bg: var(--nike-preto);
+  --bs-btn-border-color: var(--nike-preto);
+  --bs-btn-hover-color: var(--nike-preto);
+  --bs-btn-hover-bg: var(--nike-dourado);
+  --bs-btn-hover-border-color: var(--nike-dourado);
+  --bs-btn-active-color: var(--nike-preto);
+  --bs-btn-active-bg: var(--nike-dourado);
+  --bs-btn-active-border-color: var(--nike-dourado);
 }
-.hero-titulo { animation: subir .8s ease both; }
-.hero-sub    { animation: subir .8s .15s ease both; }
+.card-produto .btn-pedir:hover {
+  box-shadow: 0 .4rem .8rem rgba(212, 175, 55, 0.35);
+}
+
+/* Evita o "piscar" no hover da imagem: o botão com stretched-link cobre o card
+   inteiro via ::after, e um transform no próprio botão encolheria essa área. */
+.card-produto .stretched-link:hover { transform: none; }
+
+/* Estado "adicionado" (verde). Fica DEPOIS das regras de card para não ser sobrescrito. */
+.btn-pedir.adicionado,
+.card-produto .btn-pedir.adicionado {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #198754;
+  --bs-btn-border-color: #198754;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #198754;
+  --bs-btn-hover-border-color: #198754;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #198754;
+  --bs-btn-active-border-color: #198754;
+}
+
+/* ---------- Hero em tela cheia ---------- */
+.hero-full {
+  min-height: calc(100vh - 56px);
+  min-height: calc(100svh - 56px);
+  background: radial-gradient(circle at 75% 50%, #1c1b18 0%, var(--nike-preto) 70%);
+}
+.hero-etiqueta {
+  color: var(--nike-dourado);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.hero-titulo {
+  color: var(--nike-creme);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: .95;
+  text-transform: uppercase;
+  animation: subir .8s ease both;
+}
+.hero-img {
+  border-radius: 2rem;
+  transform: rotate(-4deg);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, .6);
+}
+
+/* ---------- Carrossel automático sem JavaScript ---------- */
+.carrossel-css {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: var(--nike-card-img);
+}
+
+.carrossel-trilho {
+  display: flex;
+  width: 400%; /* 3 imagens + 1 cópia da primeira = 400% */
+  animation: deslizar 9s infinite ease-in-out;
+}
+
+.carrossel-trilho img {
+  width: 25%;
+  min-width: 25%;
+  height: 360px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+@keyframes deslizar {
+  0%, 25%   { transform: translateX(0%); }
+  33%, 58%  { transform: translateX(-25%); }
+  66%, 91%  { transform: translateX(-50%); }
+  100%      { transform: translateX(-75%); }
+}
 
 /* ---------- Cards de produto ---------- */
 .card-produto {
+  position: relative;
   overflow: hidden;
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: box-shadow .3s ease;
 }
 .card-produto:hover {
-  transform: translateY(-6px);
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, .18) !important;
 }
+.card-produto .stretched-link::after { z-index: 2; }
+.card-produto .img-box,
+.card-produto img { pointer-events: none; }
 
-/* Caixa da imagem: altura fixa, imagem nunca passa da largura do card */
-.img-box { overflow: hidden; }
+.img-box {
+  overflow: hidden;
+  background-color: var(--nike-card-img) !important;
+}
 .img-box img {
   width: 100%;
   height: 220px;
@@ -61,38 +178,63 @@
 }
 .card-produto:hover .img-box img { transform: scale(1.08); }
 
-.preco { color: var(--nike-laranja-escuro); font-size: 1.15rem; }
+.preco { color: var(--nike-dourado-escuro); font-size: 1.15rem; }
 
-/* ---------- Navbar ---------- */
-.navbar .nav-link { transition: color .2s ease; }
-.navbar .nav-link:hover,
-.navbar .nav-link.active { color: var(--nike-laranja) !important; }
+/* ---------- Rodapé ---------- */
+footer.bg-dark {
+  background-color: var(--nike-preto) !important;
+  border-top: 1px solid #1f1e1b;
+}
 
-/* ---------- Animações (@keyframes) ---------- */
+/* ---------- Animações ---------- */
 @keyframes subir {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes pulso {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(250, 84, 0, .6); }
-  50%      { box-shadow: 0 0 0 .8rem rgba(250, 84, 0, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 241, 234, .45); }
+  50%      { box-shadow: 0 0 0 .8rem rgba(244, 241, 234, 0); }
 }
 .btn-pulso { animation: pulso 2s infinite; }
 
-/* Cards entram na tela (classe adicionada pelo main.js) */
 .card-produto.revelar { opacity: 0; transform: translateY(30px); }
 .card-produto.revelar.visivel {
   opacity: 1;
   transform: none;
+  /* inclui box-shadow para o hover do card continuar suave */
   transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease;
 }
-.card-produto.revelar.visivel:hover { transform: translateY(-6px); }
 
-/* Respeita quem desativou animações no sistema */
+/* ---------- Acessibilidade: respeita quem prefere menos movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
+  .carrossel-trilho,
+  .btn-pulso,
+  .hero-titulo { animation: none; }
+
+  .card-produto:hover .img-box img,
+  .btn-pedir:hover { transform: none; }
+
+  .card-produto.revelar,
+  .card-produto.revelar.visivel {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
-  .card-produto.revelar { opacity: 1; transform: none; }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1030; /* acima dos cards e do carrossel */
+}
+
+/* Evita que o menu cubra o título ao clicar em âncoras (#produtos, #contato) */
+html {
+  scroll-padding-top: 56px;
+}
+footer a {
+  text-decoration: none;
+}
+footer a:hover {
+  color: var(--nike-dourado);
 }
