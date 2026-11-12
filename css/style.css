@@ -1,0 +1,98 @@
+/* CSS próprio da Nike Store.
+   Carregado DEPOIS do Bootstrap: só cores, detalhes e animações.
+   Layout (grid, navbar, espaçamentos) fica por conta do Bootstrap. */
+
+:root {
+  --nike-laranja: #fa5400;
+  --nike-laranja-escuro: #d94700;
+  --nike-preto: #111;
+}
+
+/* ---------- Botão principal ---------- */
+.btn-pedir {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--nike-laranja);
+  --bs-btn-border-color: var(--nike-laranja);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--nike-laranja-escuro);
+  --bs-btn-hover-border-color: var(--nike-laranja-escuro);
+  --bs-btn-active-bg: var(--nike-laranja-escuro);
+  --bs-btn-active-border-color: var(--nike-laranja-escuro);
+  --bs-btn-focus-shadow-rgb: 250, 84, 0;
+  font-weight: 600;
+  border-radius: 50rem;
+  transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.btn-pedir:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .4rem .8rem rgba(250, 84, 0, .35);
+}
+.btn-pedir.adicionado {
+  --bs-btn-bg: #198754;
+  --bs-btn-border-color: #198754;
+  --bs-btn-hover-bg: #198754;
+  --bs-btn-hover-border-color: #198754;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--nike-preto) 0%, #2b2b2b 100%);
+}
+.hero-titulo { animation: subir .8s ease both; }
+.hero-sub    { animation: subir .8s .15s ease both; }
+
+/* ---------- Cards de produto ---------- */
+.card-produto {
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.card-produto:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, .18) !important;
+}
+
+/* Caixa da imagem: altura fixa, imagem nunca passa da largura do card */
+.img-box { overflow: hidden; }
+.img-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  transition: transform .4s ease;
+}
+.card-produto:hover .img-box img { transform: scale(1.08); }
+
+.preco { color: var(--nike-laranja-escuro); font-size: 1.15rem; }
+
+/* ---------- Navbar ---------- */
+.navbar .nav-link { transition: color .2s ease; }
+.navbar .nav-link:hover,
+.navbar .nav-link.active { color: var(--nike-laranja) !important; }
+
+/* ---------- Animações (@keyframes) ---------- */
+@keyframes subir {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulso {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(250, 84, 0, .6); }
+  50%      { box-shadow: 0 0 0 .8rem rgba(250, 84, 0, 0); }
+}
+.btn-pulso { animation: pulso 2s infinite; }
+
+/* Cards entram na tela (classe adicionada pelo main.js) */
+.card-produto.revelar { opacity: 0; transform: translateY(30px); }
+.card-produto.revelar.visivel {
+  opacity: 1;
+  transform: none;
+  transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease;
+}
+.card-produto.revelar.visivel:hover { transform: translateY(-6px); }
+
+/* Respeita quem desativou animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .card-produto.revelar { opacity: 1; transform: none; }
+}
