@@ -238,3 +238,23 @@ footer a {
 footer a:hover {
   color: var(--nike-dourado);
 }
+
+/* Rodapé / equipe */
+.membro-nome { font-weight: 700; font-size: 1.15rem; }
+.membro-contato {
+  color: #9a9a9a;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.membro-contato:hover { color: var(--nike-laranja); }
+
+#produtos {
+  min-height: calc(100vh - 56px);
+  min-height: calc(100svh - 56px);
+
+  display: flex;
+  align-items: center;
+
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
