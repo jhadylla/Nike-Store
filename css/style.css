@@ -246,7 +246,7 @@ footer a:hover {
   text-decoration: none;
   transition: color .2s ease;
 }
-.membro-contato:hover { color: var(--nike-laranja); }
+.membro-contato:hover { color: var(--nike-dourado); }
 
 #produtos {
   min-height: calc(100vh - 56px);
