@@ -1,0 +1,255 @@
+/* =========================================
+   PALETA EDITORIAL PREMIUM
+   ========================================= */
+:root {
+  --nike-creme: #f4f1ea;
+  --nike-creme-hover: #dfd9cc;
+  --nike-dourado: #d4af37;
+  --nike-dourado-escuro: #8a6d00;
+  --nike-preto: #0a0a0a;
+  --nike-card-img: #f5f5f5;
+  --altura-navbar: 56px;
+  --nike-cinza-texto: #9a9a9a;
+  
+  --font-titulo: "Limelight", serif;
+  --font-texto: "Libre Caslon Condensed", serif;
+  --bs-body-font-family: var(--font-texto);
+  
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.15);
+  --radius-lg: 1.5rem;
+}
+
+html, body {
+  overflow-x: hidden;
+  overflow-x: clip;
+  background-color: #faf9f6; /* Fundo off-white sofisticado */
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+  font-family: var(--font-titulo);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================
+   NAVBAR GLASSMORPHISM (Vidro Fosco)
+   ========================================= */
+.navbar-glass {
+  background: rgba(10, 10, 10, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+.navbar-brand {
+  color: var(--nike-dourado) !important;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--nike-dourado);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--nike-dourado) !important;
+}
+
+/* =========================================
+   HERO SECTION PREMIUM (Com Grade Sutil)
+   ========================================= */
+.hero-section {
+  min-height: calc(100vh - var(--altura-navbar));
+  background: radial-gradient(circle at 75% 50%, #1c1b18 0%, var(--nike-preto) 70%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  pointer-events: none;
+}
+.hero-etiqueta {
+  color: var(--nike-dourado);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.hero-titulo {
+  color: var(--nike-creme);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  animation: subir 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* =========================================
+   BOTÕES PREMIUM
+   ========================================= */
+.btn-pedir {
+  --bs-btn-color: var(--nike-preto);
+  --bs-btn-bg: var(--nike-creme);
+  --bs-btn-border-color: var(--nike-creme);
+  --bs-btn-hover-color: var(--nike-preto);
+  --bs-btn-hover-bg: var(--nike-dourado);
+  --bs-btn-hover-border-color: var(--nike-dourado);
+  font-weight: 700;
+  border-radius: 50rem;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-hover-glow:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+.btn-pedir:active {
+  transform: scale(0.97);
+}
+
+/* =========================================
+   CARDS PREMIUM
+   ========================================= */
+.card-premium {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), var(--shadow-glow);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+.card-premium .img-box {
+  background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 2rem;
+}
+.card-premium .img-box img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-premium:hover .img-box img {
+  transform: scale(1.1) rotate(-2deg);
+}
+.card-premium .card-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+.card-premium .btn-pedir {
+  --bs-btn-color: var(--nike-creme);
+  --bs-btn-bg: var(--nike-preto);
+  --bs-btn-border-color: var(--nike-preto);
+  --bs-btn-hover-bg: var(--nike-dourado);
+  --bs-btn-hover-border-color: var(--nike-dourado);
+  border-radius: 50rem;
+}
+
+/* =========================================
+   CARROSSEL (Fundo Claro - Como na Imagem)
+   ========================================= */
+.carrossel-css {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: #ffffff; /* Fundo branco como na imagem */
+  /* Sem bordas douradas ou sombras escuras */
+}
+.carrossel-trilho {
+  display: flex;
+  width: 400%;
+  animation: deslizar 9s infinite ease-in-out;
+}
+.carrossel-trilho img {
+  width: 25%;
+  height: 360px;
+  object-fit: contain;
+  padding: 20px; /* Padding para a imagem não colar na borda */
+}
+.carrossel-css:hover .carrossel-trilho {
+  animation-play-state: paused;
+}
+
+/* =========================================
+   FOOTER PREMIUM
+   ========================================= */
+.footer-premium {
+  background-color: #050505;
+  color: var(--nike-creme);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+.footer-premium .membro-nome {
+  font-weight: 700;
+  color: var(--nike-dourado);
+  font-size: 1.1rem;
+}
+.footer-premium .membro-email {
+  color: var(--nike-cinza-texto);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-premium .membro-email:hover {
+  color: var(--nike-dourado);
+}
+
+/* =========================================
+   ANIMAÇÕES
+   ========================================= */
+@keyframes subir {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes deslizar {
+  0%, 25% { transform: translateX(0%); }
+  33%, 58% { transform: translateX(-25%); }
+  66%, 91% { transform: translateX(-50%); }
+  100% { transform: translateX(-75%); }
+}
+@keyframes pulso {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 241, 234, 0.4); }
+  50% { box-shadow: 0 0 0 1rem rgba(244, 241, 234, 0); }
+}
+.btn-pulso {
+  animation: pulso 2.5s infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .carrossel-trilho, .btn-pulso, .hero-titulo, .card-premium {
+    animation: none !important;
+    transition: none !important;
+  }
+}
