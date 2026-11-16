@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nike Store: as melhores marcas de tênis, meias e roupas esportivas.">
+  <title>Nike Store</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:wght@400;600;700&family=Limelight&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Caminho do CSS dentro de assets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark navbar-glass">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Nike Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Início</a></li>
+            <!-- Caminho para a pasta pages -->
+            <li class="nav-item"><a class="nav-link" href="pages/sapatos.html">Sapatos</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/meia.html">Meias</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/roupa.html">Roupas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#equipe">Equipe</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero-section text-white d-flex align-items-center py-5">
+      <div class="container">
+        <div class="row align-items-center g-4 gx-md-5">
+          <div class="col-12 col-md-7 text-center text-md-start">
+            <p class="hero-etiqueta fw-semibold mb-2">Nova Coleção</p>
+            <h1 class="hero-titulo mb-3">Supere seus limites</h1>
+            <p class="lead mb-4 text-white-50">Performance e estilo para cada passo do seu treino.</p>
+            <a href="#produtos" class="btn btn-pedir btn-lg btn-pulso px-4 btn-hover-glow">Ver categorias</a>
+          </div>
+
+          <div class="col-12 col-md-5">
+            <div class="carrossel-css hero-img" role="region" aria-label="Destaques da coleção">
+              <div class="carrossel-trilho">
+                <!-- Imagens dentro de assets/img/produtos -->
+                <img src="assets/img/produtos/sapato-branco.avif" alt="Tênis Nike">
+                <img src="assets/img/produtos/blusa-branca.png" alt="Blusa Nike">
+                <img src="assets/img/produtos/meia-branca-kit.jpg" alt="Meias Nike">
+                <img src="assets/img/produtos/sapato-branco.avif" alt="" aria-hidden="true">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5 display-6 fw-normal text-uppercase tracking-wider">Categorias de produtos</h2>
+        <div class="row g-4">
+          
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-premium h-100">
+              <div class="img-box p-3 text-center">
+                <img src="assets/img/produtos/sapato-branco.avif" class="img-fluid" alt="Tênis Nike brancos" loading="lazy">
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h3 class="card-title h5 mb-2">Sapatos</h3>
+                <p class="text-secondary small mb-4">Tênis para correr, treinar e usar todo dia.</p>
+                <a href="pages/sapatos.html" class="btn btn-pedir w-100 mt-auto stretched-link" aria-label="Ver sapatos">Ver sapatos</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-premium h-100">
+              <div class="img-box p-3 text-center">
+                <img src="assets/img/produtos/meia-preta-canu-alto.avif" class="img-fluid" alt="Meias Nike pretas de cano alto" loading="lazy">
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h3 class="card-title h5 mb-2">Meias</h3>
+                <p class="text-secondary small mb-4">Conforto e estilo em todas as ocasiões.</p>
+                <a href="pages/meia.html" class="btn btn-pedir w-100 mt-auto stretched-link" aria-label="Ver meias">Ver meias</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-premium h-100">
+              <div class="img-box p-3 text-center">
+                <img src="assets/img/produtos/blusa-branca.png" class="img-fluid" alt="Kit de roupas Nike" loading="lazy">
+              </div>
+              <div class="card-body text-center d-flex flex-column">
+                <h3 class="card-title h5 mb-2">Roupas</h3>
+                <p class="text-secondary small mb-4">Blusas, shorts e conjuntos para o treino.</p>
+                <a href="pages/roupa.html" class="btn btn-pedir w-100 mt-auto stretched-link" aria-label="Ver roupas">Ver roupas</a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="equipe" class="footer-premium py-5">
+    <div class="container">
+      <h2 class="h3 text-uppercase mb-4 text-center text-md-start">Equipe</h2>
+      <div class="row g-4 text-center text-md-start">
+        <div class="col-12 col-md-4">
+          <p class="membro-nome mb-1">Jhadylla</p>
+          <a class="membro-email text-break" href="mailto:Jhadyllasousa@acad.ifma.edu.br">Jhadyllasousa@acad.ifma.edu.br</a>
+        </div>
+        <div class="col-12 col-md-4">
+          <p class="membro-nome mb-1">Anderson S. M.</p>
+          <a class="membro-email text-break" href="mailto:monteiroa@acad.ifma.edu.br">monteiroa@acad.ifma.edu.br</a>
+        </div>
+        <div class="col-12 col-md-4">
+          <p class="membro-nome mb-1">Maria Guajajara</p>
+          <a class="membro-email text-break" href="mailto:mariaguajajara@acad.ifma.edu.br">mariaguajajara@acad.ifma.edu.br</a>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="text-center text-muted small mb-0">Nike Store · Projeto N2 · IFMA</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
