@@ -20,7 +20,7 @@ O layout foi construído com a abordagem *Mobile First* (via Bootstrap) e testad
 
 | Dispositivo | Largura | Comportamento |
 | :--- | :--- | :--- |
-| **Celular** | até 576px | Cards em 1 coluna, menu hambúrguer, hero adaptado (texto centralizado). |
+| **Celular** | até 576px | Cards em 1 coluna, menu hambúrguer, hero adaptado (texto centralizado) e espaçamento lateral ajustado. |
 | **Tablet** | ~768px | Cards em 2 colunas, menu expandido, hero com texto alinhado à esquerda. |
 | **Desktop** | 1200px+ | Cards em 3 colunas, layout full-screen no Hero e carrossel lateral. |
 
@@ -32,6 +32,7 @@ O layout foi construído com a abordagem *Mobile First* (via Bootstrap) e testad
 
 * **Carrossel CSS Puro:** Animação infinita no Hero usando `@keyframes` e `transform: translateX`, sem JavaScript.
 * **Micro-interações:** Hover nos cards (elevação e zoom na imagem), botões com efeito *pulse* e transições suaves de cores.
+* **Oferta Relâmpago (100% CSS):** Widget flutuante no canto da tela que expande um painel de desconto usando a técnica de `:checked` (sem JavaScript).
 * **Acessibilidade:** Respeito à preferência de movimento reduzido (`prefers-reduced-motion`), `alt` descritivo em todas as imagens, `aria-label` nos botões e contraste de cores validado (WCAG).
 * **Paleta:** Preto (`#0a0a0a`), Creme (`#f4f1ea`) e Dourado (`#d4af37`).
 
@@ -39,13 +40,12 @@ O layout foi construído com a abordagem *Mobile First* (via Bootstrap) e testad
 
 ```text
 Nike-Store/
-├── index.html              # Página principal (Hero + Categorias)
+├── index.html              # Página principal (Hero + Categorias + Oferta)
 ├── assets/                 # Recursos do projeto
 │   ├── css/
 │   │   └── style.css       # Design System, animações e overrides do Bootstrap
 │   └── img/
 │       ├── produtos/       # Imagens dos produtos (.avif, .webp, .png)
-│       └── logos/          # Logos e favicons
 ├── pages/                  # Páginas internas do site
 │   ├── sapatos.html        # Catálogo de tênis
 │   ├── meia.html           # Catálogo de meias
