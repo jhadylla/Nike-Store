@@ -5,7 +5,6 @@ Site de vendas de tênis, meias e roupas da Nike, desenvolvido como projeto da *
 ## 🔗 Links
 
 * **Repositório:** [https://github.com/jhadylla/Nike-Store](https://github.com/jhadylla/Nike-Store)
-* **Deploy (GitHub Pages):** *(Adicione o link aqui se publicar)*
 
 ## 🛠️ Tecnologias
 
