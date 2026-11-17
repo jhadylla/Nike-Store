@@ -23,7 +23,7 @@
 html, body {
   overflow-x: hidden;
   overflow-x: clip;
-  background-color: #faf9f6; /* Fundo off-white sofisticado */
+  background-color: #faf9f6;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar-brand {
@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 
 /* =========================================
-   NAVBAR GLASSMORPHISM (Vidro Fosco)
+   NAVBAR GLASSMORPHISM
    ========================================= */
 .navbar-glass {
   background: rgba(10, 10, 10, 0.85) !important;
@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 
 /* =========================================
-   HERO SECTION PREMIUM (Com Grade Sutil)
+   HERO SECTION PREMIUM
    ========================================= */
 .hero-section {
   min-height: calc(100vh - var(--altura-navbar));
@@ -162,7 +162,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card-premium:hover .img-box img {
-  transform: scale(1.1) rotate(-2deg);
+  transform: scale(1.1);
 }
 .card-premium .card-title {
   font-size: 1.1rem;
@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 
 /* =========================================
-   CARROSSEL (Fundo Claro - Como na Imagem)
+   CARROSSEL
    ========================================= */
 .carrossel-css {
   width: 100%;
@@ -187,8 +187,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   margin: 0 auto;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  background-color: #ffffff; /* Fundo branco como na imagem */
-  /* Sem bordas douradas ou sombras escuras */
+  background-color: #ffffff;
 }
 .carrossel-trilho {
   display: flex;
@@ -199,7 +198,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   width: 25%;
   height: 360px;
   object-fit: contain;
-  padding: 20px; /* Padding para a imagem não colar na borda */
+  padding: 20px;
 }
 .carrossel-css:hover .carrossel-trilho {
   animation-play-state: paused;
@@ -228,6 +227,104 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 
 /* =========================================
+   OFERTA RELÂMPAGO (100% CSS)
+   ========================================= */
+.oferta-checkbox {
+  display: none;
+}
+
+.oferta-flutuante {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 1040;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.oferta-painel-container {
+  width: 280px;
+  max-width: calc(100vw - 3rem);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 1rem;
+}
+
+.oferta-checkbox:checked ~ .oferta-flutuante .oferta-painel-container {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.oferta-bolinha {
+  width: 84px;
+  height: 84px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--nike-dourado);
+  color: var(--nike-preto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+  animation: flutuar 3s ease-in-out infinite;
+  transition: transform .2s ease, background-color .2s ease;
+  cursor: pointer;
+}
+
+.oferta-bolinha:hover {
+  transform: scale(1.1);
+  background: var(--nike-creme);
+}
+
+.oferta-checkbox:checked ~ .oferta-flutuante .oferta-bolinha {
+  background: var(--nike-preto);
+  color: var(--nike-dourado);
+}
+
+.oferta-pct {
+  font-family: var(--font-titulo);
+  font-size: 1.5rem;
+}
+
+.oferta-bolinha small {
+  font-size: .7rem;
+}
+
+@keyframes flutuar {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oferta-bolinha { animation: none; transition: none; }
+  .oferta-painel-container { transition: none; }
+}
+
+#ofertaBtn {
+  --bs-btn-color: var(--nike-creme);
+  --bs-btn-bg: var(--nike-preto);
+  --bs-btn-border-color: var(--nike-preto);
+  --bs-btn-hover-color: var(--nike-preto);
+  --bs-btn-hover-bg: var(--nike-dourado);
+  --bs-btn-hover-border-color: var(--nike-dourado);
+  --bs-btn-active-color: var(--nike-preto);
+  --bs-btn-active-bg: var(--nike-dourado);
+  --bs-btn-active-border-color: var(--nike-dourado);
+  --bs-btn-focus-shadow-rgb: 212, 175, 55;
+}
+
+#ofertaBtn:hover {
+  box-shadow: 0 .4rem .8rem rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px);
+}
+
+/* =========================================
    ANIMAÇÕES
    ========================================= */
 @keyframes subir {
@@ -247,6 +344,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 .btn-pulso {
   animation: pulso 2.5s infinite;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .carrossel-trilho, .btn-pulso, .hero-titulo, .card-premium {
     animation: none !important;

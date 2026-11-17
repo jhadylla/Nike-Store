@@ -26,7 +26,6 @@
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Início</a></li>
-            <!-- Caminho para a pasta pages -->
             <li class="nav-item"><a class="nav-link" href="pages/sapatos.html">Sapatos</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/meia.html">Meias</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/roupa.html">Roupas</a></li>
@@ -51,7 +50,6 @@
           <div class="col-12 col-md-5">
             <div class="carrossel-css hero-img" role="region" aria-label="Destaques da coleção">
               <div class="carrossel-trilho">
-                <!-- Imagens dentro de assets/img/produtos -->
                 <img src="assets/img/produtos/sapato-branco.avif" alt="Tênis Nike">
                 <img src="assets/img/produtos/blusa-branca.png" alt="Blusa Nike">
                 <img src="assets/img/produtos/meia-branca-kit.jpg" alt="Meias Nike">
@@ -111,6 +109,30 @@
       </div>
     </section>
   </main>
+
+  <!-- ===== OFERTA RELÂMPAGO (100% CSS) ===== -->
+  <!-- O input checkbox é o gatilho invisível -->
+  <input type="checkbox" id="toggle-oferta" class="oferta-checkbox" aria-hidden="true">
+  
+  <div class="oferta-flutuante">
+    <!-- O painel que abre/fecha -->
+    <div class="oferta-painel-container">
+      <div class="card oferta-painel shadow border-0">
+        <div class="card-body text-center">
+          <span class="badge text-bg-dark mb-2">Oferta relâmpago</span>
+          <h2 class="h5 fw-bold">Até 30% de desconto em tênis selecionados</h2>
+          <p class="mb-3">Por tempo limitado</p>
+          <a href="pages/sapatos.html" id="ofertaBtn" class="btn btn-pedir w-100">Aproveitar agora</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- A bolinha clicável (conectada ao checkbox pelo "for") -->
+    <label for="toggle-oferta" class="oferta-bolinha" role="button" tabindex="0" aria-label="Abrir oferta relâmpago">
+      <span class="oferta-pct">-30%</span>
+      <small>Oferta</small>
+    </label>
+  </div>
 
   <footer id="equipe" class="footer-premium py-5">
     <div class="container">
